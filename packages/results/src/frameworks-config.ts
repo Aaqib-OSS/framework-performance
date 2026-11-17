@@ -337,5 +337,19 @@ export const frameworksConfig = [
         'browserBaseline',
       ],
     },
+    app: {
+      package: 'app-void',
+      serveScript: 'void.ts',
+      buildScript: 'build',
+      buildOutputDir: 'dist',
+      measurements: [
+        'ssrRequestThroughput',
+        'clientSideRendered',
+        'serverSideRendered',
+        'initialLoad',
+        'ssrLoad',
+        'ssrRouterLinkLoad',
+      ],
+    },
   },
 ] satisfies FrameworkConfig[]

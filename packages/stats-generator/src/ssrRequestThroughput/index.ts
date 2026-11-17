@@ -11,6 +11,7 @@ import { buildHandler as buildSolidStartHandler } from './handlers/solid-start.t
 import { buildHandler as buildSolidHandler } from './handlers/solid.ts'
 import { buildHandler as buildSveltekitHandler } from './handlers/sveltekit.ts'
 import { buildHandler as buildTanstackStartHandler } from './handlers/tanstack-start.ts'
+import { buildHandler as buildVoidHandler } from './handlers/void.ts'
 import type { FrameworkConfig } from '../types.ts'
 import type {
   ServerRenderHandler,
@@ -33,6 +34,7 @@ const handlers = new Map<string, () => Promise<ServerRenderHandler>>([
   ['app-solid', buildSolidHandler],
   ['app-sveltekit', buildSveltekitHandler],
   ['app-tanstack-start-react', buildTanstackStartHandler],
+  ['app-void', buildVoidHandler],
 ])
 
 export function supportsSSRRequestThroughputBenchmark(
