@@ -33,7 +33,11 @@ export const measurementsConfig = {
     scenario: interactionScenarioLabel,
     path: '/client-side-rendered',
   },
-  serverSideRendered: { runs: 5, scenario: interactionScenarioLabel },
+  serverSideRendered: {
+    runs: 5,
+    scenario: interactionScenarioLabel,
+    path: '/server-side-rendered',
+  },
   initialLoad: {
     path: '/initial-load',
   },
