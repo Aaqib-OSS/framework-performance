@@ -629,7 +629,7 @@
       "max": 2.263280807875083
     },
     "requests": { "value": 22753, "unit": "requests" },
-    "bodySize": { "value": 184.3, "unit": "KiB" },
+    "bodySize": { "value": 188723, "unit": "bytes" },
     "duplicationFactor": { "value": 2, "unit": "ratio" }
   },
   "ssrLoad": {

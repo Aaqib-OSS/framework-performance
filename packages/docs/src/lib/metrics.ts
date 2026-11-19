@@ -97,8 +97,8 @@ export const metricCatalogue = {
   'ssrRequestThroughput.bodySize': {
     id: 'ssrRequestThroughput.bodySize',
     title: 'Body Size',
-    valueFormat: 'kb',
-    yAxisLabel: 'Kilobytes',
+    valueFormat: 'kib',
+    yAxisLabel: 'KiB',
   },
   'ssrRequestThroughput.latency': {
     id: 'ssrRequestThroughput.latency',

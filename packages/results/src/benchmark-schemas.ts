@@ -241,7 +241,7 @@ export const SSRThroughputBenchmark = BaseBenchmark.extend({
   requestThroughput: createIterationSummary('ops/s'),
   latency: createIterationSummary('ms'),
   requests: createValueWithUnit('requests', z.number().int().nonnegative()),
-  bodySize: createValueWithUnit('KiB', z.number().positive()),
+  bodySize: createValueWithUnit('bytes', z.number().int().positive()),
   duplicationFactor: createValueWithUnit('ratio', z.number().nonnegative()),
 })
 

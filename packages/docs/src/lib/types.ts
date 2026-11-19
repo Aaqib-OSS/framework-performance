@@ -6,7 +6,7 @@ import type {
 import type { z } from 'astro/zod'
 import type { LineChartScaleId, LineChartTooltipId } from './line-chart-config'
 
-export type ChartValueFormat = 'count' | 'mb' | 'kb' | 'ms' | 's'
+export type ChartValueFormat = 'count' | 'mb' | 'kb' | 'kib' | 'ms' | 's'
 
 export interface ChartDatum {
   id?: string

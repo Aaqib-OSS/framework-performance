@@ -47,7 +47,6 @@ export const BenchmarkUnitOptions = [
   'requests',
   'errors',
   'bytes',
-  'KiB',
   'count',
   'ratio',
 ] as const

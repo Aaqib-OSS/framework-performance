@@ -553,7 +553,7 @@
       }
     },
     "requests": { "value": 30065, "unit": "requests" },
-    "bodySize": { "value": 187.02, "unit": "KiB" },
+    "bodySize": { "value": 191508, "unit": "bytes" },
     "duplicationFactor": { "value": 2, "unit": "ratio" }
   },
   "ssrLoad": {

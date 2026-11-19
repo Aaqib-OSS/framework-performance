@@ -3,6 +3,7 @@ import { test } from 'node:test'
 import { formatThroughput } from './result-content.ts'
 import type { BenchmarkResult } from '@framework-performance/results/benchmark-schemas'
 import {
+  prepareSsrRequestThroughputTestsBodySizeBytesComparison,
   prepareSsrRequestThroughputTestsOpsPerSecComparison,
   prepareSsrRequestThroughputTestsLatencyMsComparison,
   prepareSsrRequestThroughputTestsOpsPerSecHistory,
@@ -35,9 +36,18 @@ const benchmark = {
   },
   latency: { mean: 16, median: 4, min: 4, max: 40, unit: 'ms' },
   requests: { value: 9, unit: 'requests' },
-  bodySize: { value: 20.5, unit: 'KiB' },
+  bodySize: { value: 20_992, unit: 'bytes' },
   duplicationFactor: { value: 1.25, unit: 'ratio' },
 } satisfies NonNullable<BenchmarkResult['ssrThroughput']>
+
+test('the response body size chart displays stored bytes in KiB', () => {
+  const records = [
+    { package: 'app-astro', ssrRequestThroughput: formatThroughput(benchmark) },
+  ]
+  const chart = prepareSsrRequestThroughputTestsBodySizeBytesComparison(records)
+  assert.equal(chart.data[0]?.value, 20.5)
+  assert.equal(chart.valueFormat, 'kib')
+})
 
 test('throughput charts use the median of run means, not the mean or request median', () => {
   const normalized = formatThroughput(benchmark)
