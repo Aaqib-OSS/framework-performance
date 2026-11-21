@@ -1,5 +1,9 @@
 ---
-import { getRenderedInteractionBreakdownData } from '../../lib/prepare-chart'
+import {
+  getRenderedInteractionBreakdownData,
+  getRenderedInteractionWorkBreakdownData,
+} from '../../lib/prepare-chart'
+import { INTERACTION_WORK } from '../../lib/interaction-phases'
 import InteractionBreakdownChart from './InteractionBreakdownChart.astro'
 
 interface Props {
@@ -7,12 +11,24 @@ interface Props {
 }
 
 const { testsKey } = Astro.props
+const work = getRenderedInteractionWorkBreakdownData(testsKey).sort(
+  (a, b) => a.workToCommit - b.workToCommit || a.name.localeCompare(b.name),
+)
 const data = getRenderedInteractionBreakdownData(testsKey).sort(
   (a, b) =>
     a.interactionLatency - b.interactionLatency || a.name.localeCompare(b.name),
 )
 ---
 
+{
+  work.length > 0 ? (
+    <InteractionBreakdownChart
+      title="Interaction Work to Commit"
+      data={work}
+      metric={INTERACTION_WORK}
+    />
+  ) : null
+}
 {
   data.length > 0 ? (
     <InteractionBreakdownChart
