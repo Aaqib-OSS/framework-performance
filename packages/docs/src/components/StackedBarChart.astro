@@ -222,13 +222,8 @@ const { title, series, data, valueFormat = 'kb', ...attrs } = Astro.props
                   x2: 'end',
                   y: 'name',
                   fill: d.color,
-                  inset: SHARED_BAR_INSET,
-                  radius: [
-                    d.start === 0 ? 8 : 0,
-                    d.end === d.total ? 8 : 0,
-                    d.end === d.total ? 8 : 0,
-                    d.start === 0 ? 8 : 0,
-                  ],
+                  inset: 1,
+                  radius: [8, 8, 8, 8],
                 }),
               ),
             text(labels, {
